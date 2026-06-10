@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ✏️ ALTERE: Título da página (aparece na aba do navegador) -->
+<title>Canvas — Pedro Americo</title>
+<!-- Links das fontes e CSS - NÃO ALTERE -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════
+     NAVBAR (MENU DO TOPO)
+     ✏️ OPCIONAL: Você pode mudar os nomes dos temas se quiser
+     ══════════════════════════════════════════════════════════════ -->
+<nav class="navbar">
+  <!-- Logotipo fixo - NÃO ALTERE -->
+  <div class="nav-logo">
+    <div class="nav-logo-dot"></div>
+    CANVAS
+  </div>
+
+  <!-- Botões de tema - OPCIONAL editar os nomes -->
+  <div class="nav-themes">
+    <span class="theme-label">Tema</span>
+    <button class="tbtn active" onclick="mudarTema('', this)">Galeria</button>
+    <button class="tbtn" onclick="mudarTema('atelie', this)">Ateliê</button>
+    <button class="tbtn" onclick="mudarTema('museu', this)">Museu</button>
+    <button class="tbtn" onclick="mudarTema('impressionista', this)">Impressão</button>
+  </div>
+</nav>
+
+<div class="canvas-app">
+
+  <!-- ══════════════════════════════════════════════════════════════
+       IMAGEM DE CAPA DO PERFIL
+       ✏️ ALTERE AQUI: Substitua o placeholder pela imagem de capa
+       ══════════════════════════════════════════════════════════════ -->
+  <div class="profile-cover">
+    <!-- 
+    🎯 SUBSTITUIR ESTE BLOCO COMPLETO POR:
+    <img src="URL_DA_IMAGEM" alt="Capa do perfil" class="profile-cover-art">
+    
+    Exemplo:
+    <img src="https://exemplo.com/imagem-capa.jpg" alt="Capa do perfil" class="profile-cover-art">
+    -->
+    <img src="Pedro Americo.jpg" alt="pedro 1.jpg">
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SEÇÃO DO PERFIL
+       ✏️ ALTERE: Foto, nome, localização, movimento, estatísticas, bio
+       ══════════════════════════════════════════════════════════════ -->
+  <div class="profile-section">
+
+    <!-- FOTO E BOTÃO SEGUIR -->
+    <div class="profile-row">
+      <div class="profile-portrait" id="portrait-el">
+        <!-- 
+        🎯 SUBSTITUIR O EMOJI POR:
+        <img src="URL_DA_FOTO" alt="Retrato do pintor">
+        
+        Exemplo:
+        <img src="https://exemplo.com/foto-pintor.jpg" alt="Retrato do pintor">
+        -->
+        <img src="Pedro Americo.jpg" alt="Pedro Americo.jpg">
+      </div>
+      <!-- Botão seguir - NÃO ALTERE -->
+      <div class="profile-actions">
+        <button class="btn-seguir" onclick="toggleSeguir(this)">+ Seguir</button>
+      </div>
+    </div>
+
+    <!-- NOME E HANDLE DO PERFIL -->
+    <div class="profile-name-block">
+      <!-- ✏️ ALTERE: Nome completo do pintor -->
+      <div class="profile-full-name" id="nome-pintor">Pedro Américo</div>
+      <!-- ✏️ ALTERE: @handle e anos de vida (nascimento – falecimento) -->
+      <div class="profile-handle">@pedro.a· 1843 – 1905</div>
+    </div>
+
+    <!-- LOCALIZAÇÃO E MOVIMENTO ARTÍSTICO -->
+    <div class="profile-meta-row">
+      <!-- ✏️ ALTERE: Cidade e país de origem -->
+      <div class="profile-meta-item">
+        <span class="meta-icon">📍</span>
+        <span>Paraíba,Brasil</span>
+      </div>
+      <!-- ✏️ ALTERE: Nome do movimento artístico -->
+      <div class="movement-badge">Academicismo</div>
+    </div>
+
+    <!-- ESTATÍSTICAS DO PERFIL -->
+    <div class="profile-stats-row">
+      <!-- ✏️ ALTERE: Número total de obras -->
+      <div class="pstat">
+        <span class="pstat-num" id="n-obras">5</span>
+        <span class="pstat-label">obras</span>
+      </div>
+      <!-- ✏️ ALTERE: Quantas décadas o artista esteve ativo -->
+      <div class="pstat">
+        <span class="pstat-num">6</span>
+        <span class="pstat-label">décadas ativo</span>
+      </div>
+      <!-- ✏️ ALTERE: Número fictício de admiradores/seguidores -->
+      <div class="pstat">
+        <span class="pstat-num">10M</span>
+        <span class="pstat-label">admiradores</span>
+      </div>
+    </div>
+
+    <!-- BIOGRAFIA CURTA -->
+    <!-- ✏️ ALTERE: Escreva 2-4 linhas sobre o artista -->
+    <p class="profile-bio-text">
+    Pedro Américo foi um dos mais importantes pintores,escritores e intelectuais do Brasil no período do Império,demonstrou talento artístico desde criança.Ainda jovem recebeu apoio do imperador Dom Pedro II para estudar na Academia Imperial de Belas Artes ,no Rio de Janeiro.Sua pintura mais famosa é Independência ou Morte ,também chamada de O grito do Ipiranga,que representa a proclamação da Idependência do Brasil por Dom Pedro I às margens do riacho do Ipiranga.
+    </p>
+
+    <!-- CITAÇÃO FAMOSA -->
+    <!-- ✏️Altere: Insira uma frase famosa do pintor ou sobre sua arte -->
+    <blockquote class="profile-bio-quote">
+      "Independêcia ou Morte"
+    </blockquote>
+
+    <!-- TAGS/HASHTAGS -->
+    <!-- ✏️ ALTERE: Substitua pelas palavras-chave relacionadas ao artista -->
+    <div class="profile-tags">
+      <span class="ptag">#Arte acadêmica</span>
+      <span class="ptag">#Brasil Impérico</span>
+      <span class="ptag">#Independência ou Morte</span>
+      <span class="ptag">#Romantismo,academicismo</span>
+      <span class="ptag">#ArtesBrasileiras</span>
+    </div>
+  </div>
+  </div>
+  <!-- fim profile-section -->
+
+  <!-- ══════════════════════════════════════════════════════════════
+       BARRA DE ABAS
+       ✏️ OPCIONAL: Pode deixar como está
+       ══════════════════════════════════════════════════════════════ -->
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="mudarAba('galeria', this)">Galeria</button>
+    <button class="tab-btn" onclick="mudarAba('sobre', this)">Sobre</button>
+    <button class="tab-btn" onclick="mudarAba('timeline', this)">Linha do Tempo</button>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       ABA 1: GALERIA DE OBRAS
+       ✏️ ALTERE CADA OBRA: imagem, título, ano, técnica, descrição, local
+       ══════════════════════════════════════════════════════════════ -->
+  <div class="content-section visible" id="sec-galeria">
+
+    <div class="gallery-header">
+      <span class="gallery-title">Obras em Destaque</span>
+      <!-- ✏️ ALTERE: Número total de obras mostradas -->
+      <span class="gallery-count">5 obras</span>
+    </div>
+
+    <div class="gallery-grid">
+
+      <!-- ═══════════════════════════════════════════════════════
+           OBRA 1
+           ═══════════════════════════════════════════════════════ -->
+      <div class="obra-card">
+        <div class="obra-frame">
+          <!-- 
+          🎯 SUBSTITUIR ESTE BLOCO COMPLETO POR:
+          <img src="URL_DA_OBRA" alt="Título da Obra">
+          
+          Exemplo:
+          <img src="https://exemplo.com/obra1.jpg" alt="Título da Obra 1">
+          -->
+          <img src="museu_do_ipiranga_922309-985945.jpg" alt="obra 1">
+        </div>
+        <div class="obra-body">
+          <!-- ✏️ ALTERE: Título da obra -->
+          <div class="obra-titulo">Independência ou Morte</div>
+          <!-- ✏️ ALTERE: Ano e local onde está exposta -->
+          <div class="obra-ano">1888 · Museu do Ipiranga</div>
+          <!-- ✏️ ALTERE: Técnica (ex: Óleo sobre tela) e dimensões (ex: 100x80cm) -->
+          <div class="obra-tecnica">Óleo sobre tela · 4,15 x 7,60m</div>
+          <!-- ✏️ ALTERE: Descrição da obra (contexto, significado, importância) -->
+          <div class="obra-desc">
+            Tem forte caráter patriótico e heróico. Pedro Américo representou a independência como um acontecimento grandioso e organizado.
+          </div>
+          <div class="obra-actions">
+            <!-- Botão de curtir - NÃO ALTERE -->
+            <button class="obra-btn" onclick="curtirObra(this)" title="Apreciar obra">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span>Apreciar</span>
+            </button>
+            <!-- ✏️ ALTERE: Nome do museu ou local de exposição -->
+            <span class="obra-local">🏛️ Museu do Ipiranga</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════════
+           OBRA 2
+           ═══════════════════════════════════════════════════════ -->
+      <div class="obra-card">
+        <div class="obra-frame">
+          <!-- 🎯 SUBSTITUIR POR: <img src="URL_DA_OBRA_2" alt="Título da Obra 2"> -->
+          <img src="guerra-do-paraguai-1118441.png" alt="guerra-do-paraguai-1118441">
+        </div>
+        <div class="obra-body">
+          <!-- ✏️ ALTERE todos os campos abaixo -->
+          <div class="obra-titulo">Batalha do Avaí</div>
+          <div class="obra-ano">1872-1877 · Belas Artes</div>
+          <div class="obra-tecnica">óleo sobre tela ·aprox. Gm x 11mm</div>
+          <div class="obra-desc">
+            Representa um dos confortos da guerra  do Paraguai,corrido em 1868.
+          </div>
+          <div class="obra-actions">
+            <button class="obra-btn" onclick="curtirObra(this)" title="Apreciar obra">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span>Apreciar</span>
+            </button>
+            <span class="obra-local">🏛️ Belas Artes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════════
+           OBRA 3
+           ═══════════════════════════════════════════════════════ -->
+      <div class="obra-card">
+        <div class="obra-frame">
+          <!-- 🎯 SUBSTITUIR POR: <img src="URL_DA_OBRA_3" alt="Título da Obra 3"> -->
+          <img src="slide20-l.jpg" alt="slide20-l.jpg">
+        </div>
+        <div class="obra-body">
+          <!-- ✏️ ALTERE todos os campos abaixo -->
+          <div class="obra-titulo">|Tiradentes Esquartejado</div>
+          <div class="obra-ano">1893· Mariano Procópio</div>
+          <div class="obra-tecnica">óleo sobre tela · 2,65 x 1,65</div>
+          <div class="obra-desc">
+            Possui Forte carga dramática e simbólica. Pedro apresenta Tiradentes como mártir da liberdade e da independência.                                                          </div>
+          <div class="obra-actions">
+            <button class="obra-btn" onclick="curtirObra(this)" title="Apreciar obra">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span>Apreciar</span>
+            </button>
+            <span class="obra-local">Mariano Procópio</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════════
+           OBRA 4
+           ═══════════════════════════════════════════════════════ -->
+      <div class="obra-card">
+        <div class="obra-frame">
+          <!-- 🎯 SUBSTITUIR POR: <img src="URL_DA_OBRA_4" alt="Título da Obra 4"> -->
+          <img src="passo da Patria.jpg" alt="passo da Patria.jpg">
+        </div>
+        <div class="obra-body">
+          <!-- ✏️ ALTERE todos os campos abaixo -->
+          <div class="obra-titulo">Passo da Pátria</div>
+          <div class="obra-ano">1886 · Belas Artes</div>
+          <div class="obra-tecnica">óleo sobre tela · 2,5 m x 4,0</div>
+          <div class="obra-desc">
+            Representa um episódio da gueera do Paraguai, mostrando tropas brasileiras atravessando o rio durante uma operação militar.
+          </div>
+          <div class="obra-actions">
+            <button class="obra-btn" onclick="curtirObra(this)" title="Apreciar obra">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span>Apreciar</span>
+            </button>
+            <span class="obra-local">Belas Artes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════════
+           OBRA 5
+           ═══════════════════════════════════════════════════════ -->
+      <div class="obra-card">
+        <div class="obra-frame">
+          <!-- 🎯 SUBSTITUIR POR: <img src="URL_DA_OBRA_5" alt="Título da Obra 5"> -->
+          <img src="batalha de campo grande.jpg" alt="batalha de campo grande.jpg">
+        </div>
+        <div class="obra-body">
+          <!-- ✏️ ALTERE todos os campos abaixo -->
+          <div class="obra-titulo">Batalha de Campo Grande</div>
+          <div class="obra-ano">1871-1872 · Belas Artes</div>
+          <div class="obra-tecnica">óleo sobre tela · 2,5 m x 4,0</div>
+          <div class="obra-desc">
+            Representa um espisódio da gueera do Paraguai,especificamente a Batalha de Campo Grande, mostrando confronto entre topas brasileiras.
+          </div>
+          <div class="obra-actions">
+            <button class="obra-btn" onclick="curtirObra(this)" title="Apreciar obra">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span>Apreciar</span>
+            </button>
+            <span class="obra-local">Belas Artes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADICIONAR MAIS OBRAS: 
+           📋 Copie todo o bloco <div class="obra-card">...</div> acima e cole aqui
+           para adicionar quantas obras quiser -->
+      <div class="obra-card add-card">
+        <div class="add-card-icon">＋</div>
+        <div class="add-card-text">Adicione mais obras copiando um card acima</div>
+      </div>
+
+    </div>
+    <!-- fim gallery-grid -->
+
+  </div>
+  <!-- fim sec-galeria -->
+
+  <!-- ══════════════════════════════════════════════════════════════
+       ABA 2: SOBRE O PINTOR
+       ✏️ ALTERE: Biografia completa, ficha técnica e contexto histórico
+       ══════════════════════════════════════════════════════════════ -->
+  <div class="content-section" id="sec-sobre">
+    <div class="sobre-section">
+
+      <!-- BIOGRAFIA COMPLETA -->
+      <div class="sobre-bloco">
+        <div class="sobre-bloco-titulo">Biografia de Pedro Américo</div>
+        <div class="sobre-bloco-texto">
+          <!-- ✏️ ALTERE: Escreva 5-8 linhas contando a história completa do artista -->
+          Pedro Américo (1843–1905) foi um dos mais importantes pintores, escritores e intelectuais do Brasil no século XIX. Nasceu em Areia, na província da Paraíba, e destacou-se principalmente pela pintura histórica e acadêmica.Ainda jovem demonstrou talento artístico e recebeu apoio do imperador Dom Pedro II para estudar na Europa. Frequentou a Academia Imperial de Belas Artes, no Rio de Janeiro, e depois estudou em Paris, onde teve contato com o estilo acadêmico europeu.Sua obra mais famosa é Independência ou Morte, também conhecida como “O Grito do Ipiranga”, que representa a proclamação da independência do Brasil por Dom Pedro I. A pintura tornou-se uma das imagens históricas mais conhecidas do país.
+        </div>
+      </div>
+
+      <!-- FICHA DO ARTISTA -->
+      <div class="sobre-bloco">
+        <div class="sobre-bloco-titulo"></div>
+
+        <!-- ✏️ ALTERE cada linha abaixo com os dados reais do pintor -->
+        
+        <div class="sobre-linha">
+          <span class="sobre-chave">Pedro Américo</span>
+          <span class="sobre-valor">Pedro Américo</span>
+        </div>
+        
+        <div class="sobre-linha">
+          <span class="sobre-chave">1843</span>
+          <span class="sobre-valor">29/04/1843· Paraíba, Brasil</span>
+        </div>
+        
+        <div class="sobre-linha">
+          <span class="sobre-chave">1905</span>
+          <span class="sobre-valor">07/10/1905 · Florença, Itália</span>
+        </div>
+        
+        <div class="sobre-linha">
+          <span class="sobre-chave">Academicismo</span>
+          <span class="sobre-valor">Arte acadêmica</span>
+        </div>
+        
+        <div class="sobre-linha">
+          <span class="sobre-chave">óleo sobre tela</span>
+          <span class="sobre-valor">Pintura acadêmica,óleo sobre tela, desenho detalhado,contrução de cenas históricas</span>
+        </div>
+        
+        <div class="sobre-linha">
+          <span class="sobre-chave">Museu Casa de Pedro Américo,Museu do Ipiranga,museu belas artes,museu mariano procópio</span>
+          <span class="sobre-valor">Museu Casa de Pedro Américo,Museu do Ipiranga,Museu Belas Artes,Museu Mariano Procópio</span>
+        </div>
+        
+        <div class="sobre-linha">
+          <span class="sobre-chave">influências</span>
+          <span class="sobre-valor">Jean-Auguste-Dominique Ingres,Eugène Delacroix,Horace Vernet,Paul Delaroche</span>
+        </div>
+        
+        <div class="sobre-linha">
+          <span class="sobre-chave">Influenciou</span>
+          <span class="sobre-valor">Benedito Calixto,Oscar Pereira da Silva,Antônio Parreiras,Antônio Parreiras</span>
+          
+          
+        </div>
+      </div>
+
+      <!-- CONTEXTO HISTÓRICO -->
+      <div class="sobre-bloco">
+        <div class="sobre-bloco-titulo">Contexto Histórico</div>
+        <div class="sobre-bloco-texto">
+          <!-- ✏️ ALTERE: Explique o período histórico e sua relação com a arte do pintor -->
+          Brasil Império
+
+Pedro Américo produziu grande parte de sua obra durante o período do Segundo Reinado, governado por Dom Pedro II. Nesse período:
+
+o Brasil buscava construir uma identidade nacional;
+havia incentivo às artes e à educação;
+a monarquia financiava artistas e intelectuais.
+
+O imperador apoiou Pedro Américo em seus estudos na Europa.
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- fim sec-sobre -->
+
+  <!-- ══════════════════════════════════════════════════════════════
+       ABA 3: LINHA DO TEMPO
+       ✏️ ALTERE: Cada evento com ano, título e descrição
+       ══════════════════════════════════════════════════════════════ -->
+  <div class="content-section" id="sec-timeline">
+    <div class="timeline-section">
+
+      <div class="timeline">
+
+        <!-- ═══════════════════════════════════════════════════════
+             EVENTO 1: NASCIMENTO
+             ═══════════════════════════════════════════════════════ -->
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <!-- ✏️ ALTERE: Ano de nascimento -->
+          <div class="tl-ano">1843</div>
+          <!-- ✏️ ALTERE: Título do evento -->
+          <div class="tl-evento">07/10/1843</div>
+          <!-- ✏️ ALTERE: Descrição detalhada do evento -->
+          <div class="tl-descricao">
+            Linha do tempo de Pedro Américo
+1843 – Nasce em Areia, na Paraíba, em 29 de abril.
+1852 – Ainda criança, participa como desenhista de uma expedição científica pelo Nordeste brasileiro, mostrando talento precoce para a arte.
+1856 – Ingressa na Academia Imperial de Belas Artes, no Rio de Janeiro.
+1859–1864 – Recebe apoio de Dom Pedro II para estudar arte em Paris, na Escola Nacional Superior de Belas Artes.
+1869 – Obtém doutorado em Ciências Naturais pela Universidade Livre de Bruxelas, na Bélgica.
+Década de 1870 – Torna-se professor da Academia Imperial de Belas Artes e ganha reconhecimento nacional como pintor histórico.
+1877 – Produz a famosa obra Batalha do Avaí, uma das maiores pinturas históricas do Brasil.
+1888 – Pinta Independência ou Morte!, também conhecido como “O Grito do Ipiranga”, uma das imagens mais conhecidas da história brasileira.
+1890 – Atua como deputado constituinte representando a Paraíba.
+Final do século XIX – Dedica-se também à literatura, filosofia e temas bíblicos e alegóricos em sua pintura.
+1905 – Morre em Florença, na Itália, em 7 de outubro.
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════
+             EVENTO 2: FORMAÇÃO ARTÍSTICA
+             ═══════════════════════════════════════════════════════ -->
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <!-- ✏️ ALTERE: Ano do início da formação -->
+          <div class="tl-ano">1854</div>
+          <!-- ✏️ ALTERE: Título do evento -->
+          <div class="tl-evento">1854</div>
+          <!-- ✏️ ALTERE: Descrição do evento -->
+          <div class="tl-descricao">
+            Pedro Américo aprendeu a pintar desde criança em Areia e depois teve formação formal na Academia Imperial de Belas Artes, no Rio de Janeiro, onde estudou desenho, pintura e técnicas acadêmicas.
+
+Ele também teve professores ligados ao meio artístico brasileiro, como Manuel de Araújo Porto-Alegre, e conviveu com artistas como Victor Meirelles.
+
+Mais tarde, viajou para a Europa com apoio de Dom Pedro II, estudando em cidades como Paris e Florença, onde aperfeiçoou suas técnicas em academias e museus.
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════
+             EVENTO 3: OBRA MAIS FAMOSA
+             ═══════════════════════════════════════════════════════ -->
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <!-- ✏️ ALTERE: Ano da criação da obra -->
+          <div class="tl-ano">1888</div>
+          <!-- ✏️ ALTERE: Título do evento -->
+          <div class="tl-evento">Criação da Obra Mais Famosa</div>
+          <!-- ✏️ ALTERE: Descrição do evento -->
+          <div class="tl-descricao">
+            Ela foi concluída em 1888, ainda no período do Segundo Reinado, quando havia grande interesse em reforçar símbolos da monarquia e da história oficial do Brasil. Nesse período, o Estado incentivava pinturas históricas que exaltassem momentos importantes da nação.
+
+A cena retrata a Proclamação da Independência do Brasil, ocorrida às margens do rio Rio Ipiranga.
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════
+             EVENTO 4: RECONHECIMENTO
+             ═══════════════════════════════════════════════════════ -->
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <!-- ✏️ ALTERE: Ano do reconhecimento -->
+          <div class="tl-ano">1888</div>
+          <!-- ✏️ ALTERE: Título do evento -->
+          <div class="tl-evento">Reconhecimento / Prêmio</div>
+          <!-- ✏️ ALTERE: Descrição do evento -->
+          <div class="tl-descricao">
+            o patrocínio de Dom Pedro II,
+a formação na Europa,
+e o sucesso das grandes pinturas históricas no Brasil.
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════
+             EVENTO 5: FALECIMENTO
+             ═══════════════════════════════════════════════════════ -->
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <!-- ✏️ ALTERE: Ano do falecimento -->
+          <div class="tl-ano">1905</div>
+          <!-- ✏️ ALTERE: Título do evento -->
+          <div class="tl-evento">Falecimento e Legado</div>
+          <!-- ✏️ ALTERE: Descrição do legado -->
+          <div class="tl-descricao">
+            Pedro Américo morreu em 7 de outubro de 1905, em Florença, após um período de saúde debilitada.
+
+Seu legado está principalmente na consolidação da pintura histórica acadêmica no Brasil, criando imagens marcantes da história nacional, como a obra Independência ou Morte.
+
+Hoje, suas obras estão em museus como o Museu Paulista, o Museu Nacional de Belas Artes e o Museu Imperial.
+
+Ele influenciou artistas brasileiros posteriores ao fortalecer o estilo acadêmico e a pintura de temas históricos e patrióticos.
+          </div>
+        </div>
+
+        <!-- ADICIONAR MAIS EVENTOS:
+             📋 Copie todo o bloco <div class="tl-item">...</div> acima e cole aqui
+             para adicionar mais momentos importantes da vida do artista -->
+
+      </div>
+    </div>
+  </div>
+  <!-- fim sec-timeline -->
+
+  <!-- ══════════════════════════════════════════════════════════════
+       RODAPÉ
+       ✏️ OPCIONAL: Pode editar o texto do projeto
+       ══════════════════════════════════════════════════════════════ -->
+  <div class="canvas-footer">
+    <div class="footer-logo">CANVAS</div>
+    <div class="footer-line"></div>
+    <div class="footer-text">
+      <!-- ✏️ OPCIONAL: Edite as informações do projeto -->
+      <strong>Arte para todos · Literatura e Arte</strong><br>
+      Projeto da Turma · 2º Ano do Ensino Médio<br>
+      <span style="opacity: 0.5; font-size: 10px;">✏️ Edite o arquivo HTML para personalizar este perfil</span>
+    </div>
+  </div>
+
+</div><!-- fim canvas-app -->
+
+<!-- Link para o JavaScript - NÃO ALTERE -->
+<script src="script.js"></script>
+</body>
+</html>
